@@ -1,3 +1,5 @@
 .idea
 /bitrix
 /upload
+local/php_interface/vendor
+test.php
