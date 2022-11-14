@@ -1,4 +1,4 @@
-<?
+<?php
 $aMenuLinks = Array(
 	Array(
 		"Главная", 
@@ -24,13 +24,6 @@ $aMenuLinks = Array(
 	Array(
 		"Продукт", 
 		"/example/product.php", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"", 
-		"", 
 		Array(), 
 		Array(), 
 		"" 

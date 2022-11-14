@@ -1,3 +1,3 @@
 <?php
-//require_once __DIR__ . '\\vendor\\autoload.php';
-//dd('123');
+define('DEFAULT_TEMPLATE_PATH', '/local/templates/.default');
+require_once __DIR__ . '\\vendor\\autoload.php';

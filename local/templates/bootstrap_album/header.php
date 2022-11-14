@@ -3,7 +3,7 @@
 use Bitrix\Main\Page\Asset;
 $asset = Asset::getInstance();
 
-$asset->addJs(SITE_TEMPLATE_PATH . '/js/bootstrap.bundle.js');
+$asset->addJs(DEFAULT_TEMPLATE_PATH . '/js/bootstrap.bundle.js');
 ?>
 
 <!doctype html>
@@ -11,44 +11,33 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/js/bootstrap.bundle.js');
 <head>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title><?php $APPLICATION->ShowTitle()?></title>
     <?php $APPLICATION->ShowHead() ?>
+    <title><?php $APPLICATION->ShowTitle()?></title>
 
 </head>
 <body>
 
 <?php $APPLICATION->ShowPanel()?>
 
-<header>
-    <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">About</h4>
-                    <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                <strong>Album</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </div>
+<header class="site-header sticky-top py-1">
+    <?php $APPLICATION->IncludeComponent("bitrix:menu", "bootstrap_v5", Array(
+        "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+            "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+            "COMPOSITE_FRAME_MODE" => "A",	// Голосование шаблона компонента по умолчанию
+            "COMPOSITE_FRAME_TYPE" => "AUTO",	// Содержимое компонента
+            "DELAY" => "N",	// Откладывать выполнение шаблона меню
+            "MAX_LEVEL" => "1",	// Уровень вложенности меню
+            "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+            "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+            "MENU_CACHE_TYPE" => "N",	// Тип кеширования
+            "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+            "ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+            "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+            "COMPONENT_TEMPLATE" => "bootstrap_v4",
+            "MENU_THEME" => "site",	// Тема меню
+        ),
+        false
+    ); ?>
 </header>
 
 <main>
